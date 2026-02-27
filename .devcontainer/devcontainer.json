@@ -1,0 +1,29 @@
+{
+  "name": "frontend (React + Vite)",
+  "image": "mcr.microsoft.com/devcontainers/node:20",
+  "workspaceFolder": "/workspaces/frontend",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+
+  "forwardPorts": [3000],
+
+  "portsAttributes": {
+    "3000": { "label": "Vite Dev Server", "onAutoForward": "openBrowser" }
+  },
+
+  "postCreateCommand": "npm install"
+}
