@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import LoginPage from './login/LoginPage'
-import RegisterPage from './register/RegisterPage'
+import LoginPage from './pages/login/LoginPage'
+import RegisterPage from './pages/register/RegisterPage'
 import MainPage from './MainPage'
-import { getToken, removeToken } from './api'
+import { getToken, removeToken } from './api/endpoints'
 
 function App() {
   const [token, setToken] = useState<string | null>(() => getToken())
