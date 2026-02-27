@@ -3,16 +3,6 @@ import './LoginPage.css'
 import { api, saveToken } from "../../api/endpoints";
 import { LoginResponse,  LoginPageProps } from '../../types/user';
 
-// interface LoginResponse {
-//   token: string
-//   username: string
-//   email: string
-// }
-
-// interface LoginPageProps {
-//   onLogin: (token: string) => void
-//   onRegister: () => void
-// }
 
 function LoginPage({ onLogin, onRegister }: LoginPageProps) {
   const [username, setUsername] = useState('')

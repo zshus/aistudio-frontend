@@ -3,10 +3,6 @@ import '../login/LoginPage.css'
 import { api } from '../../api/endpoints'
 import {RegisterPageProps} from'../../types/user'
 
-// interface RegisterPageProps {
-//   onRegisterSuccess: () => void
-//   onBack: () => void
-// }
 
 function RegisterPage({ onRegisterSuccess, onBack }: RegisterPageProps) {
   const [username, setUsername] = useState('')

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import LoginPage from './pages/login/LoginPage'
 import RegisterPage from './pages/register/RegisterPage'
-import MainPage from './MainPage'
+import MainPage from './pages/mainpage/MainPage'
 import { getToken, removeToken } from './api/endpoints'
 
 function App() {
