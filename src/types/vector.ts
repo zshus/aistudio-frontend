@@ -44,3 +44,9 @@ export interface FileListProps {
   onUploadFiles?: (folderId: number | null, count: number) => void
 }
 
+export interface FolderPayload {
+  folderId?: number
+  folderName: string
+  folderType: string
+  useYn: boolean
+}

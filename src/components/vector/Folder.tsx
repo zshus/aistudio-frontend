@@ -6,8 +6,6 @@ const FOLDER_TYPES = [
   { value: 'data', label: 'Data', description: '데이터 스케줄 기반' },
 ] as const
 
-
-
 export function CreateFolderContent({
   folderName,
   setFolderName,
