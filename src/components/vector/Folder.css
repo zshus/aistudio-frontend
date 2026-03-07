@@ -1,0 +1,89 @@
+.folder-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.folder-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.folder-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #454567;
+}
+
+.folder-input {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.6rem 0.875rem;
+  font-size: 0.875rem;
+  color: #1e293b;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.folder-input::placeholder {
+  color: #94a3b8;
+}
+
+.folder-input:focus {
+  border-color: #3b82f6;
+}
+
+.folder-input.folder-input-error {
+  border-color: #ef4444;
+}
+
+.folder-error {
+  font-size: 0.8rem;
+  color: #ef4444;
+}
+
+.folder-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.folder-type-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.folder-type-card:hover {
+  border-color: #cbd5e1;
+}
+
+.folder-type-card.selected {
+  border-color: #dae3f2;
+  background-color: #dae3f2;
+}
+
+.folder-type-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.folder-type-card.selected .folder-type-label {
+  font-weight: 600;
+  color: #353231;
+}
+
+.folder-type-desc {
+  font-size: 0.75rem;
+  color: #454567;
+}

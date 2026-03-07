@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react'
 import '../login/LoginPage.css'
-import { api } from '../../api/endpoints'
+import { authApi } from '../../api/endpoints'
 import {RegisterPageProps} from'../../types/user'
 
 
@@ -22,7 +22,7 @@ function RegisterPage({ onRegisterSuccess, onBack }: RegisterPageProps) {
 
     setLoading(true)
     try {
-      await api.post('/auth/register', { username, email, password })
+      await authApi.register(username, email, password)
       onRegisterSuccess()
     } catch (err) {
       setError(err instanceof Error ? err.message : '회원가입에 실패했습니다.')

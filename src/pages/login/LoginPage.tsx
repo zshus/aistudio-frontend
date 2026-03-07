@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react'
 import './LoginPage.css'
-import { api, saveToken } from "../../api/endpoints";
-import { LoginResponse,  LoginPageProps } from '../../types/user';
+import { authApi, saveToken } from "../../api/endpoints";
+import { LoginPageProps } from '../../types/user';
 
 
 function LoginPage({ onLogin, onRegister }: LoginPageProps) {
@@ -21,7 +21,7 @@ function LoginPage({ onLogin, onRegister }: LoginPageProps) {
 
     setLoading(true)
     try {
-      const data = await api.post<LoginResponse>('/auth/login', { username, password })
+      const data = await authApi.login(username, password)
       saveToken(data.token)
       onLogin(data.token)
     } catch (err) {
