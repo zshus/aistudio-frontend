@@ -4,6 +4,12 @@ export interface LoginResponse {
   email: string
 }
 
+export interface User{
+  id: number
+  username: string
+  email: string
+}
+
 export interface LoginPageProps {
   onLogin: (token: string) => void
   onRegister: () => void

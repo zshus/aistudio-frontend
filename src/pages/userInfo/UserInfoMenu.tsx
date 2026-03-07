@@ -1,13 +1,14 @@
+import { useState, useEffect } from 'react'
 import './UserInfoMenu.css'
-
-// TODO: API 연동 시 이 데이터를 fetch로 교체
-const mockUserInfo = {
-  username: '홍길동',
-  email: 'hong@example.com',
-}
+import { userApi } from '@/api/endpoints'
+import type { User } from '@/types/user'
 
 function UserInfoMenu() {
-  const user = mockUserInfo
+  const [list, setList] = useState<User[]>([])
+
+  useEffect(() => {
+    userApi.getAllList().then(setList)
+  }, [])
 
   return (
     <div className="user-info-container">
@@ -20,10 +21,12 @@ function UserInfoMenu() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{user.username}</td>
-            <td>{user.email}</td>
-          </tr>
+          {list.map((user) => (
+            <tr key={user.id}>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

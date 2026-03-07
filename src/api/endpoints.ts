@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { LoginResponse } from '../types/user'
+import { LoginResponse, User } from '../types/user'
 import type { Folder, VdbFile ,FolderPayload} from '../types/vector'
 
 const TOKEN_KEY = 'token'
@@ -40,7 +40,10 @@ export const authApi = {
     axiosInstance.post<void>('/auth/register', { username, email, password }).then((r) => r.data),
 }
 
-export const userApi = {}
+export const userApi = {
+  getAllList: ()=>
+    axiosInstance.get<User[]>('/auth/users').then((response)=>response.data),
+}
 
 export const vectorDBAPI = {
   listVdbFolder: () =>
