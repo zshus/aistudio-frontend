@@ -4,6 +4,7 @@ import type { Folder, CollectionListProps } from '../../types/vector'
 import { CreateFolderContent } from './Folder'
 import { BPConfirmAlert } from '@/components/common/BPConfirmAlert'
 import './Collection.css'
+import { colors } from '@/styles/common'
 
 const StatusDot = ({ active }: { active: boolean }) => (
   <span className={`status-dot ${active ? 'active' : ''}`} />
@@ -51,7 +52,6 @@ export function CollectionList({
       await vectorDBAPI.createVdbFolder({
         folderName: newFolderName,
         folderType: newFolderType,
-        useYn: true,
       })
       fetchCollections()
       setNewModalOpened(false)
@@ -196,10 +196,17 @@ export function CollectionList({
                   <button
                     className="collection-action-btn"
                     title="삭제"
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '2px 4px', borderRadius: 4, lineHeight: 1 }}
                     onClick={(e) => handleDelete(e, c)}
                   >
-                    🗑
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={colors.danger[6]} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6l-1 14H6L5 6" />
+                    <path d="M10 11v6M14 11v6" />
+                    <path d="M9 6V4h6v2" />
+                    </svg>
                   </button>
+                 
                   <label className="toggle-switch" title={c.useYn ? '활성' : '비활성'}>
                     <input
                       type="checkbox"
@@ -212,7 +219,7 @@ export function CollectionList({
                 </div>
               </div>
               <div className="collection-item-meta">
-                {c.folderType === 'data' ? 'data type' : `${c.fileCount || 0} file(s)`}
+                {c.folderType === 'data' ? 'data' : 'files'}
               </div>
             </div>
           )

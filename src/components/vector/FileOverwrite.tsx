@@ -1,10 +1,5 @@
 import { colors } from '@/styles/common'
-
-interface FileOverwriteContentProps {
-  file: globalThis.File | null
-  setFile: (file: globalThis.File | null) => void
-  error: string | null
-}
+import { FileOverwriteContentProps }from '@/types/vector';
 
 export function FileOverwriteContent({ file, setFile, error }: FileOverwriteContentProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,6 +32,7 @@ export function FileOverwriteContent({ file, setFile, error }: FileOverwriteCont
         </span>
         <input
           type="file"
+          accept=".pdf,.doc,.docx,.hwp,.hwpx,.xls,.xlsx,.txt,.md"
           style={{ display: 'none' }}
           onChange={handleChange}
         />

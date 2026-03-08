@@ -44,7 +44,7 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
         if (!fileToDelete) return
         setDeleteLoading(true)
         try {
-            // 나중에 api 구현
+            await vectorDBAPI.deleteVdbFile({ fileId: fileToDelete.fileId })
             setEntities(prev => prev.filter(item => item.fileId !== fileToDelete.fileId))
             onFileDeleted?.(collectionId)
             setDeleteModalOpened(false)
@@ -57,11 +57,11 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
     }
 
     const handleUpload = async () => {
-        if (uploadFiles.length === 0) return
+        if (uploadFiles.length === 0 || !collectionId) return
         setUploadLoading(true)
         setUploadError(null)
         try {
-            // 나중에 api 구현
+            await Promise.all(uploadFiles.map(file => vectorDBAPI.uploadVdbFile(file, collectionId)))
             onUploadFiles?.(collectionId, uploadFiles.length)
             setUploadModalOpened(false)
             fetchEntities()
@@ -105,7 +105,8 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
     }
 
     const fetchEntities = () => {
-        // 나중에 api 구현
+        if (!collectionId) return
+        vectorDBAPI.listVdbFile(collectionId).then(setEntities).catch(console.error)
     }
 
     useEffect(() => {
@@ -133,9 +134,9 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
                         color: '#fff',
                         cursor: 'pointer',
                         fontFamily: 'inherit',
-                        fontSize: 12,
+                        fontSize: 13,
                         fontWeight: 600,
-                        padding: '4px 12px',
+                        padding: '0.35rem 0.75rem',
                     }}
                     onClick={handleOpenUpload}
                 >

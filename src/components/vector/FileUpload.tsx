@@ -1,10 +1,6 @@
 import { colors } from '@/styles/common'
+import{ FileUploadContentProps } from'@/types/vector'
 
-interface FileUploadContentProps {
-  files: globalThis.File[]
-  setFiles: (files: globalThis.File[]) => void
-  error: string | null
-}
 
 export function FileUploadContent({ files, setFiles, error }: FileUploadContentProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,6 +36,7 @@ export function FileUploadContent({ files, setFiles, error }: FileUploadContentP
         <input
           type="file"
           multiple
+          accept=".pdf,.doc,.docx,.hwp,.hwpx,.xls,.xlsx,.txt,.md"
           style={{ display: 'none' }}
           onChange={handleChange}
         />

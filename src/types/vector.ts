@@ -50,3 +50,22 @@ export interface FolderPayload {
   folderType: string
   useYn: boolean
 }
+
+export interface FilePayload {
+  fileId?: number
+  folderId?: number
+  fileName?: string
+  useYn?: boolean
+}
+
+export interface FileOverwriteContentProps {
+  file: globalThis.File | null
+  setFile: (file: globalThis.File | null) => void
+  error: string | null
+}
+
+export interface FileUploadContentProps {
+  files: globalThis.File[]
+  setFiles: (files: globalThis.File[]) => void
+  error: string | null
+}
