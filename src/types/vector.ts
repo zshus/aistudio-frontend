@@ -27,6 +27,7 @@ export interface VdbFile {
   fileId: number
   fileName: string | null
   useYn: boolean
+  keywords?: string[]
 }
 
 export interface FileTableProps {

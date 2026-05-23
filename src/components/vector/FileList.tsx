@@ -153,6 +153,7 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
                     setDeleteModalOpened(true)
                 }}
                 onOverwrite={(row) => handleOpenOverwrite(row)}
+                folderId={collectionId}
             />
 
             {/* Upload Modal */}
