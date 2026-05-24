@@ -101,7 +101,7 @@ function ChatBot() {
       {open && (
         <div className="chat-panel">
           <div className="chat-header">
-            <span>챗봇</span>
+            <span>Chatting</span>
             <button className="chat-close" onClick={() => setOpen(false)}>✕</button>
           </div>
           <div className="chat-messages">
