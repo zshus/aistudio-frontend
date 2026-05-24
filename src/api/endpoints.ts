@@ -107,6 +107,9 @@ export const vectorDBAPI = {
 }
 
 export const chatApi = {
+  createRoom: (roomName: string) =>
+    axiosInstance.post<{ roomId: number; roomName: string }>('/v1/chat/room/create', { roomName }).then((r) => r.data),
+
   streamMessage: (
     roomId: number,
     message: string,
@@ -115,7 +118,8 @@ export const chatApi = {
     topK = 5,
     onToken?: (token: string) => void,
     onRouting?: (targets: { name: string; type: string; score: number }[]) => void,
-    onDone?: (sources: { file_name: string; file_id: number; score: number }[]) => void,
+    onLlmDecision?: (decision: { tool: string; selected_ids: string[] }) => void,
+    onDone?: (sources: any[], sourceType: string) => void,
     onError?: (msg: string) => void,
   ): EventSource => {
     const token = getToken()
@@ -149,10 +153,11 @@ export const chatApi = {
           if (!raw) continue
           try {
             const evt = JSON.parse(raw)
-            if (evt.type === 'token')   onToken?.(evt.content)
-            if (evt.type === 'routing') onRouting?.(evt.targets)
-            if (evt.type === 'done')    onDone?.(evt.sources)
-            if (evt.type === 'error')   onError?.(evt.message)
+            if (evt.type === 'token')        onToken?.(evt.content)
+            if (evt.type === 'routing')      onRouting?.(evt.targets)
+            if (evt.type === 'llm_decision') onLlmDecision?.(evt)
+            if (evt.type === 'done')         onDone?.(evt.sources, evt.source_type ?? '')
+            if (evt.type === 'error')        onError?.(evt.message)
           } catch { /* ignore malformed lines */ }
         }
       }
