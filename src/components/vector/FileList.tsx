@@ -31,7 +31,7 @@ export function FileList({ collectionName, collectionId, onFileDeleted, onUpload
 
     const handleToggleActivate = async (row: VdbFile, nextChecked: boolean) => {
         try {
-            // 나중에 구현
+            await vectorDBAPI.updateVdbFile({ fileId: row.fileId, useYn: nextChecked })
             setEntities(prev => prev.map(item =>
                 item.fileId === row.fileId ? { ...item, useYn: nextChecked } : item),
             )

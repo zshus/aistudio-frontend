@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { LoginResponse, User } from '../types/user'
 import type { Folder, VdbFile, FolderPayload, FilePayload } from '../types/vector'
+import type { Tool, ToolPayload } from '../types/tool'
 
 const TOKEN_KEY = 'token'
 
@@ -104,6 +105,20 @@ export const vectorDBAPI = {
       '/v1/vector/file/keywords/save',
       { fileId, folderId, fileName, keywords }
     ).then((r) => r.data),
+}
+
+export const toolApi = {
+  list: () =>
+    axiosInstance.get<Tool[]>('/v1/tools/list').then((r) => r.data),
+
+  create: (data: Omit<ToolPayload, 'id'> & { toolId: string }) =>
+    axiosInstance.post<Tool>('/v1/tools/create', data).then((r) => r.data),
+
+  update: (data: ToolPayload) =>
+    axiosInstance.post<Tool>('/v1/tools/update', data).then((r) => r.data),
+
+  delete: (id: number) =>
+    axiosInstance.post<Tool>('/v1/tools/delete', { id }).then((r) => r.data),
 }
 
 export const chatApi = {

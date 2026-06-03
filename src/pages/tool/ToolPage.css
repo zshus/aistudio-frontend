@@ -1,0 +1,168 @@
+.tool-page {
+  padding: 24px;
+  max-width: 1100px;
+}
+
+.tool-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tool-page-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.tool-add-btn {
+  padding: 7px 16px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tool-add-btn:hover {
+  background: #1d4ed8;
+}
+
+.tool-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tool-table th {
+  background: #f1f5f9;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #475569;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tool-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+  vertical-align: top;
+}
+
+.tool-table tr:hover td {
+  background: #f8fafc;
+}
+
+.tool-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.tool-badge.active {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.tool-badge.inactive {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.tool-badge.hidden {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.tool-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tool-keyword-tag {
+  background: #eff6ff;
+  color: #3b82f6;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.tool-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tool-action-btn:hover {
+  background: #f1f5f9;
+}
+
+.tool-action-btn.delete:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.tool-form-row {
+  margin-bottom: 14px;
+}
+
+.tool-form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 5px;
+}
+
+.tool-form-input,
+.tool-form-textarea {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.tool-form-textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.tool-form-input:focus,
+.tool-form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.tool-form-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.tool-form-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 3px;
+}
+
+.tool-empty {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+  font-size: 13px;
+}
